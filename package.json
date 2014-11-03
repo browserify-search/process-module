@@ -1,0 +1,32 @@
+{
+  "name": "process-module",
+  "version": "0.0.0",
+  "description": "Process a module on npm, including getting/interpreting metadata, testing, and fetching popularity data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:browserify-search/process-module.git"
+  },
+  "keywords": [
+    "browserify"
+  ],
+  "author": "Toby Ho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/browserify-search/process-module/issues"
+  },
+  "homepage": "https://github.com/browserify-search/process-module",
+  "dependencies": {
+    "browserifiability": "git://github.com/browserify-search/browserifiability",
+    "core-deps": "0.0.1",
+    "debug": "^2.1.0",
+    "is-type": "0.0.1",
+    "mkdirp": "^0.5.0",
+    "natural": "^0.1.28",
+    "rimraf": "^2.2.8",
+    "superagent": "^0.20.0"
+  }
+}
