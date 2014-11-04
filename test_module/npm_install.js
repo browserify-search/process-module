@@ -32,7 +32,7 @@ module.exports = function(module, dir, callback){
 
         var data = ''
 
-        var npm = path.resolve('node_modules/.bin/npm')
+        var npm = path.join(__dirname, '../node_modules/.bin/npm')
         var params = []
         params.push('install', module)
         var p = execFile(npm, params, {

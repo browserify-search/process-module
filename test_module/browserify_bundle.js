@@ -4,7 +4,8 @@ var log = require('debug')('browserify:bundle')
 
 module.exports = function(module, dir, callback){
   var dirpath = path.join(dir, module, 'node_modules', module.split('@')[0])
-  var p = spawn('node_modules/.bin/browserify', [dirpath])
+  var browserify = path.join(__dirname, '../node_modules/.bin/browserify')
+  var p = spawn(browserify, [dirpath])
 
   var data = ''
 
