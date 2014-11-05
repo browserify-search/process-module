@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/browserify-search/process-module",
   "dependencies": {
-    "browserifiability": "git://github.com/browserify-search/browserifiability",
+    "browserifiability": "~0.1.0",
     "core-deps": "0.0.1",
     "debug": "^2.1.0",
     "is-type": "0.0.1",

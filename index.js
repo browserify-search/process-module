@@ -61,31 +61,23 @@ function processModule(module, done){
       }
 
       start = +new Date
-      browserifiability(results, function(err, browserifiability){
-        timeMeasurements.browserifiability = new Date - start
+
+      results.browserifiability = browserifiability(results)
+
+      getDownloadCount(module, function(err, downloadInfo){
         if (err){
-          results.browserifiability = {
+          results.downloadsLastMonth = {
             error: err.message
           }
         }else{
-          results.browserifiability = browserifiability
-        }
-
-        getDownloadCount(module, function(err, downloadInfo){
-          if (err){
-            results.downloadsLastMonth = {
-              error: err.message
-            }
-          }else{
-            results.downloadsLastMonth = {
-              start: downloadInfo.start, 
-              count: downloadInfo.downloads
-            }
+          results.downloadsLastMonth = {
+            start: downloadInfo.start, 
+            count: downloadInfo.downloads
           }
-          finish()
-        })
+        }
+        finish()
       })
-
+      
       function finish(){
         start = +new Date
         rimraf(path.join(dir, module), function(){
