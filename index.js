@@ -1,8 +1,10 @@
 var testModule = require('./test_module')
 var getModuleInfo = require('./npm/get_module_info')
 var searchInfo = require('./npm/search_info')
+var getAuthor = require('./npm/get_author')
 var easyFeatures = require('./npm/easy_features')
 var browserifiability = require('browserifiability')
+var getGithubUrl = require('./npm/get_github_repo')
 var getDownloadCount = require('./get_download_count')
 var rimraf = require('rimraf')
 var extend = require('util')._extend
@@ -43,6 +45,7 @@ function processModule(module, done){
     var version = info['dist-tags'].latest
     var search = searchInfo(info)
     var features = easyFeatures(info)
+    var githubUrl = getGithubUrl(info)
     testModule(module, dir, function(err, results, testTimeMeasurements){
       extend(timeMeasurements, testTimeMeasurements)
       if (err){
@@ -54,6 +57,8 @@ function processModule(module, done){
       var results = {
         _id: module, 
         version: version,
+        github: githubUrl,
+        author: getAuthor(info),
         search: search,
         features: features,
         testResults: results,
