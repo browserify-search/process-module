@@ -5,12 +5,12 @@ Process a module on npm, including getting/interpreting metadata, testing, and f
 
 ## Install
 
-`npm install browserify-search/process-module`
+`npm install brsh-process-module`
 
 ## Example
 
 ```js
-var processModule = require('process-module')
+var processModule = require('brsh-process-module')
 
 processModule('ispy', function(err, results){
   if (err) return console.error(err.message)
