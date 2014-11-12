@@ -46,6 +46,10 @@ function processModule(module, done){
     var search = searchInfo(info)
     var features = easyFeatures(info)
     var githubUrl = getGithubUrl(info)
+    var githubRepo = {
+      owner: githubUrl.split('/')[0],
+      name: githubUrl.split('/')[1]
+    }
     testModule(module, dir, function(err, results, testTimeMeasurements){
       extend(timeMeasurements, testTimeMeasurements)
       if (err){
@@ -57,7 +61,7 @@ function processModule(module, done){
       var results = {
         _id: module, 
         version: version,
-        github: githubUrl,
+        githubRepo: githubRepo,
         author: getAuthor(info),
         search: search,
         features: features,
