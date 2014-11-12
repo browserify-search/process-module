@@ -1,6 +1,6 @@
 {
   "name": "brsh-process-module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Process a module on npm, including getting/interpreting metadata, testing, and fetching popularity data.",
   "main": "index.js",
   "scripts": {
