@@ -46,10 +46,10 @@ function processModule(module, done){
     var search = searchInfo(info)
     var features = easyFeatures(info)
     var githubUrl = getGithubUrl(info)
-    var githubRepo = {
+    var githubRepo = githubUrl ? {
       owner: githubUrl.split('/')[0],
       name: githubUrl.split('/')[1]
-    }
+    } : null
     testModule(module, dir, function(err, results, testTimeMeasurements){
       extend(timeMeasurements, testTimeMeasurements)
       if (err){
